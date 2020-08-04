@@ -160,6 +160,33 @@ define Device/iptime_a604m
 endef
 TARGET_DEVICES += iptime_a604m
 
+define Device/jotale_js76x8
+  DEVICE_VENDOR := Jotale
+  DEVICE_MODEL := JS76x8
+  DEVICE_PACKAGES := kmod-usb2 kmod-usb-ohci
+endef
+
+define Device/jotale_js76x8-8m
+  $(Device/jotale_js76x8)
+  IMAGE_SIZE := 7872k
+  DEVICE_VARIANT := 8M
+endef
+TARGET_DEVICES += jotale_js76x8-8m
+
+define Device/jotale_js76x8-16m
+  $(Device/jotale_js76x8)
+  IMAGE_SIZE := 16064k
+  DEVICE_VARIANT := 16M
+endef
+TARGET_DEVICES += jotale_js76x8-16m
+
+define Device/jotale_js76x8-32m
+  $(Device/jotale_js76x8)
+  IMAGE_SIZE := 32448k
+  DEVICE_VARIANT := 32M
+endef
+TARGET_DEVICES += jotale_js76x8-32m
+
 define Device/mediatek_linkit-smart-7688
   IMAGE_SIZE := 32448k
   DEVICE_VENDOR := MediaTek
@@ -377,6 +404,16 @@ define Device/tplink_re200-v2
 endef
 TARGET_DEVICES += tplink_re200-v2
 
+define Device/tplink_re200-v3
+  $(Device/tplink-safeloader)
+  IMAGE_SIZE := 7808k
+  DEVICE_MODEL := RE200
+  DEVICE_VARIANT := v3
+  DEVICE_PACKAGES := kmod-mt76x0e
+  TPLINK_BOARD_ID := RE200-V3
+endef
+TARGET_DEVICES += tplink_re200-v3
+
 define Device/tplink_re220-v2
   $(Device/tplink-safeloader)
   IMAGE_SIZE := 7808k
@@ -501,7 +538,7 @@ define Device/tplink_tl-wr841n-v14
   IMAGE_SIZE := 3968k
   DEVICE_MODEL := TL-WR841N
   DEVICE_VARIANT := v14
-  TPLINK_FLASHLAYOUT := 4Mmtk
+  TPLINK_FLASHLAYOUT := 4MLmtk
   TPLINK_HWID := 0x08410014
   TPLINK_HWREVADD := 0x14
   IMAGES := sysupgrade.bin tftp-recovery.bin
