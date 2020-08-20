@@ -210,6 +210,15 @@ define Device/alfa-network_ap121f
 endef
 TARGET_DEVICES += alfa-network_ap121f
 
+define Device/allnet_all-wap02860ac
+  SOC := qca9558
+  DEVICE_VENDOR := ALLNET
+  DEVICE_MODEL := ALL-WAP02860AC
+  DEVICE_PACKAGES := ath10k-firmware-qca988x-ct kmod-ath10k-ct
+  IMAGE_SIZE := 13120k
+endef
+TARGET_DEVICES += allnet_all-wap02860ac
+
 define Device/arduino_yun
   SOC := ar9331
   DEVICE_VENDOR := Arduino
@@ -929,7 +938,7 @@ define Device/iodata_etg3-r
   DEVICE_VENDOR := I-O DATA
   DEVICE_MODEL := ETG3-R
   IMAGE_SIZE := 7680k
-  DEVICE_PACKAGES := -iwinfo -kmod-ath9k -wpad-basic
+  DEVICE_PACKAGES := -iwinfo -kmod-ath9k -wpad-basic-wolfssl
 endef
 TARGET_DEVICES += iodata_etg3-r
 
@@ -989,7 +998,7 @@ define Device/jjplus_ja76pf2
   SOC := ar7161
   DEVICE_VENDOR := jjPlus
   DEVICE_MODEL := JA76PF2
-  DEVICE_PACKAGES += -kmod-ath9k -swconfig -wpad-mini -uboot-envtools fconfig
+  DEVICE_PACKAGES += -kmod-ath9k -swconfig -wpad-basic-wolfssl -uboot-envtools fconfig
   IMAGES := kernel.bin rootfs.bin
   IMAGE/kernel.bin := append-kernel
   IMAGE/rootfs.bin := append-rootfs | pad-rootfs
